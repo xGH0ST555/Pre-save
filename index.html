@@ -121,6 +121,16 @@
         </div>
     </div>
 
+    <div class="welcome-overlay is-hidden" id="confirmation-modal" role="dialog" aria-modal="true" aria-labelledby="confirmation-message">
+        <div class="welcome-modal">
+            <button class="welcome-close" type="button" aria-label="Cerrar mensaje">&times;</button>
+            <p id="confirmation-message">
+                ¡Tu reserva ha sido confirmada con éxito!
+            </p>
+            <img src="images/SANTO.png" alt="Santo">
+        </div>
+    </div>
+
     <footer class="advice-footer" aria-label="Advice">
         <div class="advice-marquee advice-marquee-right">
             <div class="advice-track">
@@ -221,6 +231,19 @@
         const form = document.querySelector("form");
         const submitBtn = form.querySelector('button[type="submit"]');
         const btnText = submitBtn ? submitBtn.querySelector(".btn-text") : null;
+        const confirmModal = document.querySelector("#confirmation-modal");
+        const confirmClose = confirmModal.querySelector(".welcome-close");
+
+        function closeConfirmModal() {
+            confirmModal.classList.add("is-hidden");
+        }
+
+        confirmClose.addEventListener("click", closeConfirmModal);
+        confirmModal.addEventListener("click", (event) => {
+            if (event.target === confirmModal) {
+                closeConfirmModal();
+            }
+        });
 
         form.addEventListener("submit", function (event) {
             event.preventDefault();
@@ -229,41 +252,37 @@
                 submitBtn.disabled = true;
             }
             if (btnText) {
-                btnText.textContent = "REDIRIGIENDO...";
+                btnText.textContent = "CONFIRMANDO...";
             }
 
             const formData = new FormData(form);
             const body = new URLSearchParams(formData);
-            const redirectUrl = "nequi://pay?phone=3145109596";
-            let redirected = false;
 
-            const doRedirect = () => {
-                if (!redirected) {
-                    redirected = true;
-                    window.location.href = redirectUrl;
+            const handleSuccess = () => {
+                confirmModal.classList.remove("is-hidden");
+                form.reset();
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                }
+                if (btnText) {
+                    btnText.textContent = "RESERVAR PRENDA";
                 }
             };
-
-            // Redirección de respaldo en caso de demora en la red
-            const timeoutId = setTimeout(doRedirect, 1000);
 
             fetch(form.action, {
                 method: "POST",
                 mode: "no-cors",
-                keepalive: true,
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded"
                 },
                 body: body.toString()
             })
                 .then(() => {
-                    clearTimeout(timeoutId);
-                    doRedirect();
+                    handleSuccess();
                 })
                 .catch((error) => {
                     console.error("Error al registrar respuesta:", error);
-                    clearTimeout(timeoutId);
-                    doRedirect();
+                    handleSuccess();
                 });
         });
     </script>
