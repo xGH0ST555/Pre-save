@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="estilos/estilos.css">
 </head>
+
 <body>
     <header class="brand-header">
         <div class="brand-content">
@@ -20,8 +22,7 @@
     </header>
     <form
         action="https://docs.google.com/forms/d/e/1FAIpQLSf-FMcmK74aEcrz9isG6gfRrmw1unBABVJ4qnMvJcKZiEL0dw/formResponse"
-        method="POST"
-    >
+        method="POST">
         <label for="nombre">Nombre *</label>
         <input type="text" name="entry.29569710" id="nombre" required>
 
@@ -34,12 +35,7 @@
         <fieldset>
             <legend>Elige tu camiseta *</legend>
             <label>
-                <input
-                    type="radio"
-                    name="entry.1381153510"
-                    value="Santo Origin"
-                    required
-                >
+                <input type="radio" name="entry.1381153510" value="Santo Origin" required>
                 Santo Origin
             </label>
             <div class="shirt-carousel" aria-label="Galería de Santo Origin">
@@ -47,10 +43,7 @@
                     &#8249;
                 </button>
                 <figure class="carousel-display">
-                    <img
-                        src="images/JSS F.png"
-                        alt="Camiseta Santo Origin, vista frontal"
-                    >
+                    <img src="images/JSS F.png" alt="Camiseta Santo Origin, vista frontal">
                     <figcaption>Vista frontal</figcaption>
                 </figure>
                 <button class="carousel-button" type="button" aria-label="Siguiente camiseta">
@@ -58,11 +51,7 @@
                 </button>
             </div>
             <label>
-                <input
-                    type="radio"
-                    name="entry.1381153510"
-                    value="Santo Salvador"
-                >
+                <input type="radio" name="entry.1381153510" value="Santo Salvador">
                 Santo Salvador
             </label>
             <div class="shirt-carousel" aria-label="Galería de camisetas">
@@ -70,10 +59,7 @@
                     &#8249;
                 </button>
                 <figure class="carousel-display">
-                    <img
-                        src="images/JSS F.png"
-                        alt="Camiseta Santo Salvador, vista frontal"
-                    >
+                    <img src="images/JSS F.png" alt="Camiseta Santo Salvador, vista frontal">
                     <figcaption>Vista frontal</figcaption>
                 </figure>
                 <button class="carousel-button" type="button" aria-label="Siguiente camiseta">
@@ -109,20 +95,11 @@
         <fieldset>
             <legend>Silueta *</legend>
             <label>
-                <input
-                    type="radio"
-                    name="entry.474539429"
-                    value="Oversize"
-                    required
-                >
+                <input type="radio" name="entry.474539429" value="Oversize" required>
                 Oversize
             </label>
             <label>
-                <input
-                    type="radio"
-                    name="entry.474539429"
-                    value="Regular Fit"
-                >
+                <input type="radio" name="entry.474539429" value="Regular Fit">
                 Regular Fit
             </label>
         </fieldset>
@@ -257,7 +234,7 @@
 
             const formData = new FormData(form);
             const body = new URLSearchParams(formData);
-            const redirectUrl = "https://nek.ui/3145109596";
+            const redirectUrl = "nequi://pay?phone=3145109596";
             let redirected = false;
 
             const doRedirect = () => {
@@ -279,16 +256,17 @@
                 },
                 body: body.toString()
             })
-            .then(() => {
-                clearTimeout(timeoutId);
-                doRedirect();
-            })
-            .catch((error) => {
-                console.error("Error al registrar respuesta:", error);
-                clearTimeout(timeoutId);
-                doRedirect();
-            });
+                .then(() => {
+                    clearTimeout(timeoutId);
+                    doRedirect();
+                })
+                .catch((error) => {
+                    console.error("Error al registrar respuesta:", error);
+                    clearTimeout(timeoutId);
+                    doRedirect();
+                });
         });
     </script>
 </body>
+
 </html>
