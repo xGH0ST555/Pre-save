@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva tu prenda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos/estilos.css">
+</head>
+<body>
+    <header class="brand-header">
+        <div class="brand-content">
+            <img class="brand-logo" src="images/SANTO.png" alt="Santo">
+            <img class="brand-crown" src="images/corona.png" alt="Corona">
+            <img class="brand-number" src="images/3.png" alt="3">
+        </div>
+    </header>
+    <form
+        action="https://docs.google.com/forms/d/e/1FAIpQLSf-FMcmK74aEcrz9isG6gfRrmw1unBABVJ4qnMvJcKZiEL0dw/formResponse"
+        method="POST"
+    >
+        <label for="nombre">Nombre *</label>
+        <input type="text" name="entry.1843444458" id="nombre" required>
+
+        <label for="correo">Correo *</label>
+        <input type="email" name="entry.1843444459" id="correo" required>
+
+        <label for="telefono">Número de teléfono (Opcional)</label>
+        <input type="tel" name="entry.1843444460" id="telefono">
+
+        <fieldset>
+            <legend>Elige tu camiseta *</legend>
+            <label>
+                <input
+                    type="radio"
+                    name="entry.1843444461"
+                    value="Santo Origin"
+                    required
+                >
+                Santo Origin
+            </label>
+            <div class="shirt-carousel" aria-label="Galería de Santo Origin">
+                <button class="carousel-button" type="button" aria-label="Camiseta anterior">
+                    &#8249;
+                </button>
+                <figure class="carousel-display">
+                    <img
+                        src="images/JSS F.png"
+                        alt="Camiseta Santo Origin, vista frontal"
+                    >
+                    <figcaption>Vista frontal</figcaption>
+                </figure>
+                <button class="carousel-button" type="button" aria-label="Siguiente camiseta">
+                    &#8250;
+                </button>
+            </div>
+            <label>
+                <input
+                    type="radio"
+                    name="entry.1843444461"
+                    value="Santo Salvador"
+                >
+                Santo Salvador
+            </label>
+            <div class="shirt-carousel" aria-label="Galería de camisetas">
+                <button class="carousel-button" type="button" aria-label="Camiseta anterior">
+                    &#8249;
+                </button>
+                <figure class="carousel-display">
+                    <img
+                        src="images/JSS F.png"
+                        alt="Camiseta Santo Salvador, vista frontal"
+                    >
+                    <figcaption>Vista frontal</figcaption>
+                </figure>
+                <button class="carousel-button" type="button" aria-label="Siguiente camiseta">
+                    &#8250;
+                </button>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Talla *</legend>
+            <label>
+                <input type="radio" name="entry.1843444462" value="S" required>
+                S
+            </label>
+            <label>
+                <input type="radio" name="entry.1843444462" value="M">
+                M
+            </label>
+            <label>
+                <input type="radio" name="entry.1843444462" value="L">
+                L
+            </label>
+            <label>
+                <input type="radio" name="entry.1843444462" value="XL">
+                XL
+            </label>
+            <label>
+                <input type="radio" name="entry.1843444462" value="XXL">
+                XXL
+            </label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Silueta *</legend>
+            <label>
+                <input
+                    type="radio"
+                    name="entry.1843444463"
+                    value="Oversize"
+                    required
+                >
+                Oversize
+            </label>
+            <label>
+                <input
+                    type="radio"
+                    name="entry.1843444463"
+                    value="Regular Fit"
+                >
+                Regular Fit
+            </label>
+        </fieldset>
+
+        <button class="outer-btn" type="submit">
+            <span class="inner-btn">
+                <span class="btn-text">RESERVAR PRENDA</span>
+            </span>
+        </button>
+    </form>
+
+    <div class="welcome-overlay" id="welcome-modal" role="dialog" aria-modal="true" aria-labelledby="welcome-message">
+        <div class="welcome-modal">
+            <button class="welcome-close" type="button" aria-label="Cerrar mensaje">&times;</button>
+            <p id="welcome-message">
+                Adquiere tu prenda (Santo) a menor precio reservando antes del lanzamiento.
+            </p>
+            <img src="images/SANTO.png" alt="Santo">
+        </div>
+    </div>
+
+    <footer class="advice-footer" aria-label="Advice">
+        <div class="advice-marquee advice-marquee-right">
+            <div class="advice-track">
+                <div class="advice-sequence">
+                    <img src="images/ADVICE.png" alt="Advice">
+                    <img src="images/ADVICE.png" alt="" aria-hidden="true">
+                    <img src="images/ADVICE.png" alt="" aria-hidden="true">
+                    <img src="images/ADVICE.png" alt="" aria-hidden="true">
+                    <img src="images/ADVICE.png" alt="" aria-hidden="true">
+                    <img src="images/ADVICE.png" alt="" aria-hidden="true">
+                    <img src="images/ADVICE.png" alt="" aria-hidden="true">
+                    <img src="images/ADVICE.png" alt="" aria-hidden="true">
+                </div>
+                <div class="advice-sequence" aria-hidden="true">
+                    <img src="images/ADVICE.png" alt="">
+                    <img src="images/ADVICE.png" alt="">
+                    <img src="images/ADVICE.png" alt="">
+                    <img src="images/ADVICE.png" alt="">
+                    <img src="images/ADVICE.png" alt="">
+                    <img src="images/ADVICE.png" alt="">
+                    <img src="images/ADVICE.png" alt="">
+                    <img src="images/ADVICE.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="advice-marquee advice-marquee-left">
+            <div class="advice-track">
+                <div class="advice-sequence">
+                    <img src="images/ADVICE.png" alt="Advice">
+                    <img src="images/ADVICE.png" alt="" aria-hidden="true">
+                    <img src="images/ADVICE.png" alt="" aria-hidden="true">
+                    <img src="images/ADVICE.png" alt="" aria-hidden="true">
+                    <img src="images/ADVICE.png" alt="" aria-hidden="true">
+                    <img src="images/ADVICE.png" alt="" aria-hidden="true">
+                    <img src="images/ADVICE.png" alt="" aria-hidden="true">
+                    <img src="images/ADVICE.png" alt="" aria-hidden="true">
+                </div>
+                <div class="advice-sequence" aria-hidden="true">
+                    <img src="images/ADVICE.png" alt="">
+                    <img src="images/ADVICE.png" alt="">
+                    <img src="images/ADVICE.png" alt="">
+                    <img src="images/ADVICE.png" alt="">
+                    <img src="images/ADVICE.png" alt="">
+                    <img src="images/ADVICE.png" alt="">
+                    <img src="images/ADVICE.png" alt="">
+                    <img src="images/ADVICE.png" alt="">
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const shirtImages = [
+            {
+                src: "images/JSS F.png",
+                alt: "Camiseta Santo Salvador, vista frontal",
+                caption: "Vista frontal"
+            },
+            {
+                src: "images/JSS B.png",
+                alt: "Camiseta Santo Salvador, vista posterior",
+                caption: "Vista posterior"
+            }
+        ];
+        document.querySelectorAll(".shirt-carousel").forEach((carousel) => {
+            const shirtImage = carousel.querySelector(".carousel-display img");
+            const shirtCaption = carousel.querySelector(".carousel-display figcaption");
+            const carouselButtons = carousel.querySelectorAll(".carousel-button");
+            let currentShirt = 0;
+
+            function showShirt(index) {
+                currentShirt = (index + shirtImages.length) % shirtImages.length;
+                const shirt = shirtImages[currentShirt];
+                shirtImage.classList.add("is-changing");
+                shirtImage.src = shirt.src;
+                shirtImage.alt = shirt.alt;
+                shirtCaption.textContent = shirt.caption;
+                requestAnimationFrame(() => shirtImage.classList.remove("is-changing"));
+            }
+
+            carouselButtons[0].addEventListener("click", () => showShirt(currentShirt - 1));
+            carouselButtons[1].addEventListener("click", () => showShirt(currentShirt + 1));
+        });
+
+        const welcomeModal = document.querySelector("#welcome-modal");
+        const welcomeClose = welcomeModal.querySelector(".welcome-close");
+
+        function closeWelcomeModal() {
+            welcomeModal.classList.add("is-hidden");
+        }
+
+        welcomeClose.addEventListener("click", closeWelcomeModal);
+        welcomeModal.addEventListener("click", (event) => {
+            if (event.target === welcomeModal) {
+                closeWelcomeModal();
+            }
+        });
+    </script>
+</body>
+</html>
