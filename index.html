@@ -20,9 +20,11 @@
             <img class="brand-number" src="images/3.png" alt="3">
         </div>
     </header>
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
     <form
         action="https://docs.google.com/forms/d/e/1FAIpQLSf-FMcmK74aEcrz9isG6gfRrmw1unBABVJ4qnMvJcKZiEL0dw/formResponse"
-        method="POST">
+        method="POST"
+        target="hidden_iframe">
         <label for="nombre">Nombre *</label>
         <input type="text" name="entry.29569710" id="nombre" required>
 
@@ -245,46 +247,37 @@
             }
         });
 
-        form.addEventListener("submit", function (event) {
-            event.preventDefault();
+        const hiddenIframe = document.querySelector("#hidden_iframe");
+        let isSubmitted = false;
 
+        function handleSuccess() {
+            if (!isSubmitted) return;
+            isSubmitted = false;
+            confirmModal.classList.remove("is-hidden");
+            form.reset();
+            if (submitBtn) {
+                submitBtn.disabled = false;
+            }
+            if (btnText) {
+                btnText.textContent = "RESERVAR PRENDA";
+            }
+        }
+
+        form.addEventListener("submit", function () {
+            isSubmitted = true;
             if (submitBtn) {
                 submitBtn.disabled = true;
             }
             if (btnText) {
                 btnText.textContent = "CONFIRMANDO...";
             }
-
-            const formData = new FormData(form);
-            const body = new URLSearchParams(formData);
-
-            const handleSuccess = () => {
-                confirmModal.classList.remove("is-hidden");
-                form.reset();
-                if (submitBtn) {
-                    submitBtn.disabled = false;
-                }
-                if (btnText) {
-                    btnText.textContent = "RESERVAR PRENDA";
-                }
-            };
-
-            fetch(form.action, {
-                method: "POST",
-                mode: "no-cors",
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded"
-                },
-                body: body.toString()
-            })
-                .then(() => {
-                    handleSuccess();
-                })
-                .catch((error) => {
-                    console.error("Error al registrar respuesta:", error);
-                    handleSuccess();
-                });
+            // Garantiza que la confirmación se muestre incluso si el iframe retrasa su evento
+            setTimeout(handleSuccess, 1200);
         });
+
+        if (hiddenIframe) {
+            hiddenIframe.addEventListener("load", handleSuccess);
+        }
     </script>
 </body>
 
