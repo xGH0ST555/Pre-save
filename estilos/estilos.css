@@ -331,7 +331,7 @@ button {
 .advice-track {
     align-items: center;
     display: flex;
-    gap: 0;
+    gap: 1.5rem;
     width: max-content;
 }
 
