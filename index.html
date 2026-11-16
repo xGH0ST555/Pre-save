@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reserva tu prenda</title>
+    <title>SANTO PRE-SALE</title>
     <link rel="icon" type="image/png" href="images/3ic.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,15 +23,14 @@
     <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
     <form
         action="https://docs.google.com/forms/d/e/1FAIpQLSf-FMcmK74aEcrz9isG6gfRrmw1unBABVJ4qnMvJcKZiEL0dw/formResponse"
-        method="POST"
-        target="hidden_iframe">
+        method="POST" target="hidden_iframe">
         <label for="nombre">Nombre *</label>
         <input type="text" name="entry.29569710" id="nombre" required>
 
         <label for="correo">Correo *</label>
         <input type="email" name="entry.701870896" id="correo" required>
 
-        <label for="telefono">Número de teléfono (Opcional)</label>
+        <label for="telefono">Número de teléfono*</label>
         <input type="tel" name="entry.1793110462" id="telefono">
 
         <fieldset>
@@ -123,7 +122,8 @@
         </div>
     </div>
 
-    <div class="welcome-overlay is-hidden" id="confirmation-modal" role="dialog" aria-modal="true" aria-labelledby="confirmation-message">
+    <div class="welcome-overlay is-hidden" id="confirmation-modal" role="dialog" aria-modal="true"
+        aria-labelledby="confirmation-message">
         <div class="welcome-modal">
             <button class="welcome-close" type="button" aria-label="Cerrar mensaje">&times;</button>
             <p id="confirmation-message">
